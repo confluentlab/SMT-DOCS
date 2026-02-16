@@ -16,7 +16,7 @@ Then add it to a connector config:
 ```properties
 name=mongo-assessment-sink
 connector.class=com.mongodb.kafka.connect.MongoSinkConnector
-topics=fhir-assessments
+topics=commerce-orders
 
 transforms=Extract
 transforms.Extract.type=com.example.fhir.connect.smt.DynamicJsonExtractSMT
@@ -102,13 +102,13 @@ Some mapping-related keys also support environment-variable fallbacks.
 ### PostgreSQL JDBC sink
 
 ```properties
-name=postgres-claims-sink
+name=postgres-orders-sink
 connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
-topics=claims-events
+topics=commerce-orders
 
 transforms=Extract
 transforms.Extract.type=com.example.fhir.connect.smt.DynamicJsonExtractSMT
-transforms.Extract.connector.name=postgres-claims-sink
+transforms.Extract.connector.name=postgres-orders-sink
 transforms.Extract.target.database=postgresql
 transforms.Extract.jdbc.flatten.nested=true
 transforms.Extract.jdbc.array.mode=native_array
