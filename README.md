@@ -14,16 +14,16 @@ mvn clean package
 Then add it to a connector config:
 
 ```properties
-name=mongo-assessment-sink
+name=mongo-commerce-orders-sink
 connector.class=com.mongodb.kafka.connect.MongoSinkConnector
 topics=commerce-orders
 
 transforms=Extract
 transforms.Extract.type=com.example.fhir.connect.smt.DynamicJsonExtractSMT
-transforms.Extract.connector.name=mongo-assessment-sink
+transforms.Extract.connector.name=mongo-commerce-orders-sink
 ```
 
-That's it. The SMT looks up the mapping for `mongo-assessment-sink`, extracts the fields you care about, and outputs a document that MongoDB knows how to write.
+That's it. The SMT looks up the mapping for `mongo-commerce-orders-sink`, extracts the fields you care about, and outputs a document that MongoDB knows how to write.
 
 ## How it works
 
